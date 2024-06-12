@@ -3,6 +3,8 @@ package lotto.domain;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
 
 class StoreTest {
@@ -25,5 +27,18 @@ class StoreTest {
         //when
         //then
         assertThatCode(() -> new Store(5000)).doesNotThrowAnyException();
+    }
+
+    @Test
+    @DisplayName("금액 5000원, 로또 5장 구매")
+    void publishLotto() {
+        //given
+        Store store = new Store(5000);
+
+        //when
+        List<Lotto> lottos = store.publishLotto();
+
+        //then
+        assertThat(lottos.size()).isEqualTo(5);
     }
 }
