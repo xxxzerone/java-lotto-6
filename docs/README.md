@@ -30,6 +30,7 @@
   - 해당 하지 않으면 IllegalArgumentException
 - [ ] 보너스 번호가 당첨 번호와 중복인지 검증
   - 중복 시 IllegalArgumentException
+- [x] 당첨 번호와 발행한 로또 번호 비교
 - [ ] 수익률 계산
   - 당첨 금액 / 구입 금액 * 100
    
