@@ -1,5 +1,10 @@
 package lotto.domain;
 
+import lotto.util.Generate;
+
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class Store {
 
     private static final int DEFAULT_UNIT_AMOUNT = 1000;
@@ -21,7 +26,19 @@ public class Store {
         return amount % DEFAULT_UNIT_AMOUNT != 0;
     }
 
+    public List<Lotto> publishLotto() {
+        return IntStream.range(0, getLottoCount())
+                .mapToObj(i -> new Lotto(getSortedNumbers()))
+                .toList();
+    }
+
     private int getLottoCount() {
         return amount / DEFAULT_UNIT_AMOUNT;
+    }
+
+    private List<Integer> getSortedNumbers() {
+        List<Integer> numbers = Generate.getNumbers();
+        numbers.sort(null);
+        return numbers;
     }
 }
