@@ -19,16 +19,16 @@
   - 1,000원으로 나누어 떨어지지 않으면 IllegalArgumentException
 - [x] 구매 수량만큼 로또 발행
   - asc 정렬
-- [ ] 1~45의 랜덤 숫자 생성
-- [ ] 당첨 번호 split
+- [x] 1~45의 랜덤 숫자 생성
+- [x] 당첨 번호 split
   - 각각의 번호가 1~45가 아니면 IllegalArgumentException
-- [ ] 당첨 번호가 6개인지 검증
+- [x] 당첨 번호가 6개인지 검증
   - 6개가 아니면 IllegalArgumentException
-- [ ] 당첨 번호 중복 숫자 검증
+- [x] 당첨 번호 중복 숫자 검증
   - 중복 시 IllegalArgumentException
-- [ ] 보너스 번호 1개, 1~45 범위 정규식
+- [x] 보너스 번호 1개, 1~45 범위인지 검증
   - 해당 하지 않으면 IllegalArgumentException
-- [ ] 보너스 번호가 당첨 번호와 중복인지 검증
+- [x] 보너스 번호가 당첨 번호와 중복인지 검증
   - 중복 시 IllegalArgumentException
 - [x] 당첨 번호와 발행한 로또 번호 비교
 - [ ] 수익률 계산
