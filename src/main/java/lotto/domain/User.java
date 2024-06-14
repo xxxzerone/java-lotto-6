@@ -38,7 +38,7 @@ public class User {
                 .filter(winning -> winningResult.get(winning) != 0)
                 .mapToLong(WinningPolicy::getAmount)
                 .sum();
-        return (double) winningAmount / money * 100;
+        return Math.round((double) winningAmount / money * 1000) / 10.0;
     }
 
     public List<Lotto> getLottos() {
