@@ -21,7 +21,7 @@ class ValidateTest {
         //when
 
         //then
-        assertThatCode(() -> Validate.numberOutOfRange(numbers)).doesNotThrowAnyException();
+        assertThat(Validate.numberOutOfRange(numbers)).isFalse();
     }
 
     @Test
@@ -34,12 +34,8 @@ class ValidateTest {
         //when
 
         //then
-        assertThatThrownBy(() -> Validate.numberOutOfRange(numbers1))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 1~45 범위의 벗어난 숫자가 있습니다.");
-        assertThatThrownBy(() -> Validate.numberOutOfRange(numbers2))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 1~45 범위의 벗어난 숫자가 있습니다.");
+        assertThat(Validate.numberOutOfRange(numbers1)).isTrue();
+        assertThat(Validate.numberOutOfRange(numbers2)).isTrue();
     }
 
     @Test
@@ -51,7 +47,7 @@ class ValidateTest {
         //when
 
         //then
-        assertThatCode(() -> Validate.numberOfDuplicate(numbers)).doesNotThrowAnyException();
+        assertThat(Validate.numberOfDuplicate(numbers)).isFalse();
     }
 
     @Test
@@ -64,12 +60,8 @@ class ValidateTest {
         //when
 
         //then
-        assertThatThrownBy(() -> Validate.numberOfDuplicate(numbers1))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 중복된 수가 있습니다.");
-        assertThatThrownBy(() -> Validate.numberOfDuplicate(numbers2))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 중복된 수가 있습니다.");
+        assertThat(Validate.numberOfDuplicate(numbers1)).isTrue();
+        assertThat(Validate.numberOfDuplicate(numbers2)).isTrue();
     }
 
     @ParameterizedTest
@@ -79,7 +71,7 @@ class ValidateTest {
         //given
         //when
         //then
-        assertThatCode(() -> Validate.bonusNumberOutOfRange(number)).doesNotThrowAnyException();
+        assertThat(Validate.bonusNumberOutOfRange(number)).isFalse();
     }
 
     @ParameterizedTest
@@ -89,9 +81,7 @@ class ValidateTest {
         //given
         //when
         //then
-        assertThatThrownBy(() -> Validate.bonusNumberOutOfRange(number))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 1~45 범위의 벗어난 숫자가 있습니다.");
+        assertThat(Validate.bonusNumberOutOfRange(number)).isTrue();
     }
 
     @Test
@@ -103,7 +93,7 @@ class ValidateTest {
         //when
 
         //then
-        assertThatCode(() -> Validate.bonusNumberInLotto(winning, bonusNumber)).doesNotThrowAnyException();
+        assertThat(Validate.bonusNumberInLotto(winning, bonusNumber)).isFalse();
     }
 
     @Test
@@ -115,8 +105,6 @@ class ValidateTest {
         //when
 
         //then
-        assertThatThrownBy(() -> Validate.bonusNumberInLotto(winning, bonusNumber))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 보너스 번호의 숫자가 로또 번호 숫자와 겹칩니다.");
+        assertThat(Validate.bonusNumberInLotto(winning, bonusNumber)).isTrue();
     }
 }
