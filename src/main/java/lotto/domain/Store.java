@@ -2,7 +2,9 @@ package lotto.domain;
 
 import lotto.util.Generate;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Store {
@@ -29,16 +31,20 @@ public class Store {
     public List<Lotto> publishLotto() {
         return IntStream.range(0, getLottoCount())
                 .mapToObj(i -> new Lotto(getSortedNumbers()))
-                .toList();
+                .collect(Collectors.toList());
     }
 
-    private int getLottoCount() {
+    public int getLottoCount() {
         return amount / DEFAULT_UNIT_AMOUNT;
     }
 
     private List<Integer> getSortedNumbers() {
-        List<Integer> numbers = Generate.getNumbers();
+        List<Integer> numbers = new ArrayList<>(Generate.getNumbers());
         numbers.sort(null);
         return numbers;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 }
