@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ResultTest {
+class WinningTest {
 
-    private Result result;
+    private Winning winning;
 
     @BeforeEach
     void setUp() {
-        result = new Result(new Lotto(List.of(7, 17, 18, 24, 30, 33)), 42);
+        winning = new Winning(new Lotto(List.of(7, 17, 18, 24, 30, 33)), 42);
     }
 
     @ParameterizedTest(name = "[{index}] {1}")
@@ -27,7 +27,7 @@ class ResultTest {
         //given
 
         //when
-        WinningPolicy winning = result.winning(lotto);
+        WinningPolicy winning = this.winning.winning(lotto);
 
         //then
         assertThat(winning).isEqualTo(winningPolicy);
