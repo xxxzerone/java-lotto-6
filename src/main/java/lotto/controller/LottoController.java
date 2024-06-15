@@ -33,6 +33,7 @@ public class LottoController {
 
                 String inputBonusNumber = InputView.readBonusNumber();
                 int bonusNumber = Number.parse(inputBonusNumber);
+
                 return new Winning(new Lotto(numbers), bonusNumber);
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -44,8 +45,8 @@ public class LottoController {
         while (true) {
             try {
                 String inputMoney = InputView.readMoney();
-                int money = Number.parse(inputMoney);
-                return new Store(money);
+
+                return new Store(Number.parse(inputMoney));
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
